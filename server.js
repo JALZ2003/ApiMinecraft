@@ -21,7 +21,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(cors())
 server.use(morgan("dev"));
 
-server.use("/api", indexRouter)
+server.use("/api", (req, res, next) => {console.log(`[ROUTER]: Loading main route...`); return next()}, indexRouter)
 server.use(not_found_handler)
 server.use(error_handler);
 
