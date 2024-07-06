@@ -26,3 +26,5 @@ server.use(not_found_handler)
 server.use(error_handler);
 
 server.listen(process.env.PORT, () => console.log('Server Ready!!'));
+
+export default server;
