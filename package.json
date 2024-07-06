@@ -2,7 +2,7 @@
   "name": "apiminecraft",
   "version": "1.0.0",
   "description": "api para los items de minecraft",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",
