@@ -7,7 +7,7 @@ const schema = new Schema({
     namespacedId: { type: String, },
     description: { type: String, },
     image: { type: String, },
-    item: { type: Types.ObjectId },
+    item: { type: Types.ObjectId, ref: "items" },
     tool: { type: String, },
     flammable: { type: Boolean, },
     transparent: { type: Boolean, },
