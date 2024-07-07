@@ -3,15 +3,15 @@ import Admin from "../models/Admin.js";
 export default async (req, res, next) => {
     try {
         console.log(`[SYSTEM]: validating if the account exists -> ${req.body.email}`);
-        const admin = await Admin.findOne({ email: req.body.email });
-        console.log(`[SYSTEM]: Validation successful -> ${admin ? true : false}`);
-        if (admin) {
-            req.admin = {
-                _id: admin._id,
-                name: admin.name,
-                email: admin.email,
-                password: admin.password,
-                role: admin.role
+        const user = await Admin.findOne({ email: req.body.email });
+        console.log(`[SYSTEM]: Validation successful -> ${user ? true : false}`);
+        if (user) {
+            req.user = {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                password: user.password,
+                role: user.role
             };
             return next();
         }

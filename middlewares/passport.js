@@ -8,13 +8,12 @@ export default passport.use(new Strategy({
 }, async (jwt_payload, done) => {
     try {
         console.log("[SYSTEM]: Passport Authentication in Process...");
-        let admin = await Admin.findOne({ _id: jwt_payload._id });
+        let user = await Admin.findOne({ _id: jwt_payload._id });
         console.log("[SYSTEM]: Admin Authentication Success...");
-        console.log("[SYSTEM]: Admin ->", admin.name);
-        delete admin.password;
-        delete admin.confirmPassword;
-        if (admin) {
-            return done(null, admin);
+        console.log("[SYSTEM]: Admin ->", user.name);
+        delete user.password;
+        if (user) {
+            return done(null, user);
         } else {
             return done(null, false);
         }
