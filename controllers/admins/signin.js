@@ -8,7 +8,7 @@ export default async (req, res, next) => {
         return res.status(200).json({
             success: true,
             response: {
-                admin: req.admin,
+                admin: req.user,
                 token: req.token
             },
             message: "Admin signed is successfully!!"
