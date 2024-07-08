@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 // Controllers
+import read_one from "../controllers/blocks/read_one.js";
 import destroy from "../controllers/blocks/destroy.js";
 import create from "../controllers/blocks/create.js";
 import update from "../controllers/blocks/update.js";
@@ -19,6 +20,7 @@ import schemaBlocks from "../schemas/blocks/create.js";
 const blocksRouter = Router();
 
 blocksRouter.get('/', requested_method, read);
+blocksRouter.get('/:id', requested_method, read_one);
 blocksRouter.post('/', requested_method, passport.authenticate('jwt', { session: false }), validator(schemaBlocks), exist_block, create);
 blocksRouter.put('/:id', requested_method, passport.authenticate('jwt', { session: false }), isBlock, update);
 blocksRouter.delete('/:id', requested_method, passport.authenticate('jwt', { session: false }), isBlock, destroy);
