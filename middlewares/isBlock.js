@@ -2,7 +2,9 @@ import Block from "../models/Block.js";
 
 export default async (req, res, next) => {
     try {
+        console.log(`[SYSTEM]: Found Block in database...`);
         const block = await Block.findById(req.params.id);
+        console.log(`[SYSTEM]: Block found -> ${block}`);
         if (block) {
             return next();
         }
