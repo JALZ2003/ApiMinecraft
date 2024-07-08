@@ -6,6 +6,7 @@ export default async (req, res, next) => {
         const block = await Block.findById(req.params.id);
         console.log(`[SYSTEM]: Block found -> ${block}`);
         if (block) {
+            console.log(`[SYSTEM]: Next enpoint...`);
             return next();
         }
         return res.status(404).json({
